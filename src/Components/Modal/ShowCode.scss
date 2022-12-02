@@ -1,0 +1,20 @@
+.ModalContent{
+    border: 1px solid #0000003b;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 4%;
+    border-radius: 15px;
+}
+.CodeDiv{
+    padding: 8px;
+    background-color: rgb(46, 46, 46);
+    color: white;
+    width: 97%;
+    max-height: 44vh;
+    overflow: auto;
+    border-radius: 6px;
+}
+.ant-modal-content{
+    max-height: 81vh;
+    overflow: auto;
+}

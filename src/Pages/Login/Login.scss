@@ -1,0 +1,74 @@
+.Loginbody{
+    background-image: url("../../../public/Images/Loginbg.jpg");
+    height: 100vh;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.logincard{
+    height: 80vh;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("../../../public/Images/Logincard.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.loginupper{
+    color: white;
+    padding: 10%;
+    text-align: center;
+    height: 30%;
+}
+
+.divider{
+    height: 1px;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginlower{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    background: white;
+    height: 60%;
+    text-align: center;
+}
+
+
+.loginlower p,.loginlower h2{
+    text-align: center;
+}
+
+.loginupper p, .loginlower p{
+    font-weight: 200;
+}
+
+
+
+@media (max-width:840px) and (min-width:640px) {
+
+    .logincard {
+        height: 59vh;
+        width: 64%;
+    }
+    
+}
+
+@media (max-width:640px)  {
+
+    .logincard {
+        height: 80vh;
+        width: 86%;
+    }
+
+}

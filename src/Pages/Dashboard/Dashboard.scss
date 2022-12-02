@@ -1,0 +1,53 @@
+nav{
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: var(--primary);
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.Addbutton{
+    background-color: var(--secondary);
+    padding: 0.8%;
+    padding-left: 1.2%;
+    font-size: 12px;
+    padding-right: 1.2%;
+    border-radius: 8px;
+}
+
+.Filters{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CodeCard{
+    border: 1px solid #0000004d;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    padding: 39px;
+}
+
+.CodeCard span{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.CodeCard h4{
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    font-size: 22px;
+}
