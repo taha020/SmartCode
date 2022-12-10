@@ -1,11 +1,37 @@
 import React from 'react';
 import "./Login.scss"
 import { Button, Checkbox, Form, Input } from 'antd';
+import { getAuth,setPersistence,browserSessionPersistence, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
+    let navigate = useNavigate();
+    const auth = getAuth();
     const onFinish = (values) => {
-        console.log('Success:', values);
+      // Sigining
+      signInWithEmailAndPassword(auth, values.email, values.password)
+      .then((userCredential) => {
+        // Setting presisteance so it will expire if browser Close
+        const user = userCredential.user;
+        setPersistence(auth, browserSessionPersistence)
+        .then(() => {
+          alert("Logged In!")
+          console.log("Logged In and:",user)
+          navigate("/"); 
+         })
+        .catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+        });
+      })
+      .catch((error) => {
+        alert("Invalid Data!")
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Error",errorCode,errorMessage)
+      });
+
+      
       };
       const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -41,12 +67,12 @@ const Login = () => {
       autoComplete="off"
     >
       <Form.Item
-        label="Username"
-        name="username"
+        label="Email"
+        name="email"
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: 'Please input your email!',
           },
         ]}
       >

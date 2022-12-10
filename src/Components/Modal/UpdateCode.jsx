@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, push, set } from "firebase/database";
+import { getDatabase, ref, update } from "firebase/database";
 import { PlusOutlined  } from '@ant-design/icons';
 import { Button, Drawer, Input, Select, Space,Modal } from 'antd';
 
 
-const NewCode = (props) => {
+const UpdateCode = (props) => {
 
-  let Cetaqgory = ""
+   const db = getDatabase();
 
-  const db = getDatabase(); 
+   let Cetaqgory = props.SnippetToUpdate.cetagory
+
+
+  
   const [open, setOpen] = useState(false);
 
   const { TextArea } = Input;
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -36,24 +40,19 @@ const NewCode = (props) => {
 
    if( heading!="" && description!="" && code!="" && Cetaqgory!=""   )
    {
-
-    const postListRef = ref(db, 'Snippets');
-    const newPostRef = push(postListRef);
-    const id = newPostRef.toJSON().toString().slice(-20)
-    set(newPostRef, {
-      id:id,
+   
+    update(ref(db,'Snippets/' + props.SnippetToUpdate.id),{
       heading:heading,
       description:description,
       code:code,
-      cetagory:Cetaqgory,
-      date: new Date().toLocaleString().replace(',','').toString()
+      cetagory:Cetaqgory
     }).then(()=>{
+      alert("Data posted!")
       document.getElementById("heading").value = ""
       document.getElementById("description").value = ""
       document.getElementById("code").value = ""
-      alert("Data posted!")
       setOpen(false);
-    }).catch((err)=>{alert("Error!");console.log("Firebase posted Data Error:",err)});
+    }).catch((err)=>console.log(err));
 
    }
    else
@@ -70,7 +69,7 @@ const NewCode = (props) => {
 
   return (
     <>
-      <Button style={{display:"None"}} id='newcode' type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
+      <Button style={{display:"None"}} id='Updatecode' type="primary" onClick={showDrawer} icon={<PlusOutlined />}>
         
       </Button>
       <Drawer
@@ -92,13 +91,13 @@ const NewCode = (props) => {
       >
         <br /><br /> 
         <label>Title</label><br /> <br /> 
-        <Input id="heading"  placeholder="Basic usage" />   <br /><br /> <br /> 
+        <Input defaultValue={props.SnippetToUpdate.heading} id="heading"  placeholder="Basic usage" />   <br /><br /> <br /> 
         <label>Description</label><br /> <br /> 
-        <TextArea id="description"  rows={4} placeholder="maxLength is 200" maxLength={200} /> <br /><br /> <br /> 
+        <TextArea defaultValue={props.SnippetToUpdate.description} id="description"  rows={4} placeholder="maxLength is 200" maxLength={200} /> <br /><br /> <br /> 
         <label>Code</label><br /> <br /> 
-        <TextArea id="code"  rows={4} placeholder="Paste code" /> <br /><br /> <br /> 
+        <TextArea defaultValue={props.SnippetToUpdate.code} id="code"  rows={4} placeholder="Paste code" /> <br /><br /> <br /> 
         <label>Cetagory</label><br /> <br /> 
-        <Select  className='Cetchangery'
+        <Select className='Cetchangery'
         style={{ width: '60%',display:"inline-block" }}
     showSearch
     fieldNames={props.CetagoriesToShow}
@@ -120,16 +119,12 @@ const NewCode = (props) => {
        <br /> <Input id='Newcet' placeholder="Enter Cetagory" /> <br /><br />
       </Modal>
     </>
-
-      
+     
     </> 
-    
-  
-    
-    
+     
   );
 
 
 
 };
-export default NewCode;
+export default UpdateCode;

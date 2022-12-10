@@ -29,9 +29,9 @@ const ShowCode = (props) => {
       </Button>
       <Modal title="SmartCode | Code snippet" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <div className="ModalContent">
-         <h4 style={{margin:"0px",color:"var(--primary)"}} >{props.content.Title}</h4>
-         <p>{props.content.Description}</p>
-         <div style={{cursor:"pointer"}} onClick={()=>CopyToClipBoard(props.content.Code)} className='CodeDiv' >{props.content.Code}</div>
+         <h4 style={{margin:"0px",color:"var(--primary)"}} >{props.content.heading}</h4>
+         <p>{props.content.description}</p>
+         <div style={{cursor:"pointer"}} onClick={()=>CopyToClipBoard(props.content.code)} className='CodeDiv' >{props.content.code}</div>
         </div>
       </Modal>
     </>
