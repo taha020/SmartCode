@@ -18,6 +18,9 @@ const NewCode = (props) => {
   const onClose = () => {
     setOpen(false);
   };
+
+  
+
   const onChange = (value) => {
     Cetaqgory = value
   };
@@ -32,7 +35,7 @@ const NewCode = (props) => {
 
    let heading = document.getElementById("heading").value 
    let description = document.getElementById("description").value 
-   let code = document.getElementById("code").value 
+   let code = document.getElementById("code").value.toString()
 
    if( heading!="" && description!="" && code!="" && Cetaqgory!=""   )
    {
@@ -60,8 +63,6 @@ const NewCode = (props) => {
    {
     alert("please enter values")
    }
-
-
  
   };
   const handleCancel = () => {

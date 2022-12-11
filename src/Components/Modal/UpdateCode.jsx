@@ -6,11 +6,9 @@ import { Button, Drawer, Input, Select, Space,Modal } from 'antd';
 
 const UpdateCode = (props) => {
 
-   const db = getDatabase();
+  const db = getDatabase();
 
-   let Cetaqgory = props.SnippetToUpdate.cetagory
-
-
+  let Cetaqgory = props.SnippetToUpdate.cetagory
   
   const [open, setOpen] = useState(false);
 

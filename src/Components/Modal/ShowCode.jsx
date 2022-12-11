@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Button, Modal, Popover  } from 'antd';
+import React, { useState , useEffect } from 'react';
+import { Button, Modal  } from 'antd';
 import "./ShowCode.scss"
 
 const ShowCode = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -21,17 +20,16 @@ const ShowCode = (props) => {
     alert("Copied to clipboard!")
   }
 
-
   return (
     <>
       <Button style={{display:"none"}} id='SHowcodeButton'  type="primary" onClick={showModal}>
-        
+        <p>,    navigator.clipboard.writeText(code);,    alert("Copied to clipboard!"),</p>
       </Button>
       <Modal title="SmartCode | Code snippet" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <div className="ModalContent">
          <h4 style={{margin:"0px",color:"var(--primary)"}} >{props.content.heading}</h4>
          <p>{props.content.description}</p>
-         <div style={{cursor:"pointer"}} onClick={()=>CopyToClipBoard(props.content.code)} className='CodeDiv' >{props.content.code}</div>
+         <div style={{cursor:"pointer"}} onClick={()=>CopyToClipBoard( props.content.code )} className='CodeDiv' > <p> { props.content.code } </p> </div>
         </div>
       </Modal>
     </>
