@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/SmartCode/static/css/main.9ebe1738.css",
+    "main.js": "/SmartCode/static/js/main.b0c38449.js",
+    "static/js/787.cfcb0719.chunk.js": "/SmartCode/static/js/787.cfcb0719.chunk.js",
+    "static/media/Loginbg.jpg": "/SmartCode/static/media/Loginbg.fac8b7960e6b32d1cd54.jpg",
+    "static/media/Logincard.png": "/SmartCode/static/media/Logincard.441e21d431a057bed0ab.png",
+    "index.html": "/SmartCode/index.html",
+    "main.9ebe1738.css.map": "/SmartCode/static/css/main.9ebe1738.css.map",
+    "main.b0c38449.js.map": "/SmartCode/static/js/main.b0c38449.js.map",
+    "787.cfcb0719.chunk.js.map": "/SmartCode/static/js/787.cfcb0719.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ebe1738.css",
+    "static/js/main.b0c38449.js"
+  ]
+}
